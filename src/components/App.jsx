@@ -1,10 +1,21 @@
 import React, {Component} from "react";
+import { Searchbar } from './Searchbar/index';
+
+import {AppStyled} from './App.styled';
 
 export class App extends Component {
 
   state = {
     
   }
+
+  handleSearchSubmit = (event) => {
+    event.preventDefault();
+    const value = event.target.elements.search.value;
+    console.log(value);
+
+  }
+  
 
   // componentDidMount() {
   //   this.setState({loading: true});
@@ -18,18 +29,19 @@ export class App extends Component {
 
   render() {
 
+
     return (
-    <>
+    <AppStyled>
     {/* {this.state.pixabay && (<div>{this.state.pixabay.name}</div>)}
     {this.state.loading && <h1>Loading</h1>} */}
-    {/* <Searchbar />
-    <ImageGallery/>
-    <ImageGalleryItem/>
-    <Loader/>
-    <Button/>
-    <Modal/> */}
+     <Searchbar onSubmit={this.handleSearchSubmit}/>
+     {/* <ImageGallery/>
+     <ImageGalleryItem/>
+     <Loader/>
+     <Button/>
+     <Modal/>  */}
 
-    </>
+    </AppStyled>
     )
     
   }
